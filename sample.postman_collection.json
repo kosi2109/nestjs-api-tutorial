@@ -1,0 +1,305 @@
+{
+	"info": {
+		"_postman_id": "40e18516-8779-4335-bb64-4c1384b8ff54",
+		"name": "nestjs api tuto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22256146"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\" : \"sithu@gmail.com\" ,\n   \"password\" : \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signup?pp=a",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "pp",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\" : \"sithu123@gmail.com\" ,\n   \"password\" : \"asdqwefr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/signin",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjM3LCJlbWFpbCI6InRlc3RAbWFpbC5jb20iLCJpYXQiOjE3MzMxMjYyMDcsImV4cCI6MTczMzEyNzEwN30.FofV4xr3KIDPODF6vxvaUhVNFRIJvf4UWm2ogAsr8Ds",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/me",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI1LCJlbWFpbCI6InNpdGh1MTJAZ21haWwuY29tIiwiaWF0IjoxNzMzMTIyNTcwLCJleHAiOjE3MzMxMjM0NzB9.E_8-USSFQGsM9u1KTaOCXBfueyEbm7Hu77TrJd-gpbM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\" : \"update\",\n    \"lastName\" : \"update\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bookmarks",
+			"item": [
+				{
+					"name": "Create Bookmark",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI4LCJlbWFpbCI6InNpdGh1MTJAZ21haWwuY29tIiwiaWF0IjoxNzMzMTI0NzEyLCJleHAiOjE3MzMxMjU2MTJ9.y6WRvwLWUWcoHEkaQjWRvYszsd3KkGpdvxwF35ae5rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"new bookmark\",\n    \"link\" : \"link\",\n    \"description\" : \"description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/bookmarks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bookmarks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQ0LCJlbWFpbCI6InNpdGh1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTczMzEyNjUyMiwiZXhwIjoxNzMzMTI3NDIyfQ.5GDoJch5wrB0JDjtgGOJSSxiaOaw66FLxKFCVLefUCI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookmarks",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookmarks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bookmark By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI5LCJlbWFpbCI6InNpdGh1MTIzQGdtYWlsLmNvbSIsImlhdCI6MTczMzEyNDg2NiwiZXhwIjoxNzMzMTI1NzY2fQ.rKtvgBUEUB8SKoliatEmTYN-bmcW3gScuCSishoT2tg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookmarks/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookmarks",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Bookmark By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI4LCJlbWFpbCI6InNpdGh1MTJAZ21haWwuY29tIiwiaWF0IjoxNzMzMTI0NzEyLCJleHAiOjE3MzMxMjU2MTJ9.y6WRvwLWUWcoHEkaQjWRvYszsd3KkGpdvxwF35ae5rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" : \"update bookmark\",\n    \"link\" : \"link\",\n    \"description\" : \"description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/bookmarks/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookmarks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Bookmark By Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjI4LCJlbWFpbCI6InNpdGh1MTJAZ21haWwuY29tIiwiaWF0IjoxNzMzMTI0NzEyLCJleHAiOjE3MzMxMjU2MTJ9.y6WRvwLWUWcoHEkaQjWRvYszsd3KkGpdvxwF35ae5rk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/bookmarks/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"bookmarks",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
