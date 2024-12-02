@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../../prisma/prisma.service';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(
@@ -23,12 +23,11 @@ export class JwtStrategy extends PassportStrategy(
     const user = await this.prismaService.user.findFirst({
       where: {
         id: payload.sub,
-        email: payload.email,
       },
     });
 
-    delete user.password;
-    
+    delete user?.password;
+
     return user;
   }
 }
